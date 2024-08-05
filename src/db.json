@@ -1,0 +1,110 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "birthDate": "2023-04-02",
+      "status": "Y"
+    },
+    {
+      "id": "5cb8",
+      "firstName": "Kammy",
+      "lastName": "Aquan",
+      "birthDate": "2024-07-02",
+      "classroom": "Amber",
+      "status": "Y"
+    },
+    {
+      "id": "a20c",
+      "firstName": "Sofi",
+      "lastName": "Singh",
+      "birthDate": "2023-04-02",
+      "classroom": "Ruby",
+      "status": "Y"
+    },
+    {
+      "id": "595f",
+      "firstName": "Lance",
+      "lastName": "Aquan",
+      "birthDate": "2023-08-01",
+      "classroom": "Amber",
+      "status": "N"
+    },
+    {
+      "id": "141e",
+      "firstName": "Mia",
+      "lastName": "Motley",
+      "birthDate": "2024-08-01",
+      "classroom": "Ruby",
+      "status": "N"
+    },
+    {
+      "id": "d4a4",
+      "firstName": "Lucas",
+      "lastName": "Chin",
+      "birthDate": "2024-07-10",
+      "classroom": "Pearl",
+      "status": "N"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Dwayne",
+      "lastName": "Aquan",
+      "birthDate": "1897-06-01"
+    },
+    {
+      "id": "a20c",
+      "firstName": "Shobha",
+      "lastName": "Dhanpat",
+      "birthDate": "1988-07-02"
+    }
+  ],
+  "classrooms": [
+    {
+      "id": "1",
+      "name": "Amber"
+    },
+    {
+      "id": "2",
+      "name": "Ruby"
+    },
+    {
+      "id": "3",
+      "name": "Pearl"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "1",
+      "studentId": "1",
+      "date": "2024-07-31",
+      "arrival": "",
+      "departure": ""
+    },
+    {
+      "id": "2",
+      "studentId": "1",
+      "date": "2024-07-25",
+      "arrival": "",
+      "departure": ""
+    },
+    {
+      "id": "3",
+      "studentId": "5cb8",
+      "date": "2024-07-31",
+      "arrival": "",
+      "departure": ""
+    },
+    {
+      "id": "4",
+      "studentId": "a20c",
+      "date": "2024-07-31",
+      "arrival": "",
+      "departure": ""
+    }
+  ]
+}
