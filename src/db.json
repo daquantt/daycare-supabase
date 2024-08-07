@@ -1,7 +1,7 @@
 {
   "students": [
     {
-      "id": "1",
+      "id": "1gh8",
       "firstName": "Yendi",
       "lastName": "Aquan",
       "classroom": "Amber",
@@ -30,7 +30,7 @@
       "lastName": "Aquan",
       "birthDate": "2023-08-01",
       "classroom": "Amber",
-      "status": "N"
+      "status": "Y"
     },
     {
       "id": "141e",
@@ -38,7 +38,7 @@
       "lastName": "Motley",
       "birthDate": "2024-08-01",
       "classroom": "Ruby",
-      "status": "N"
+      "status": "Y"
     },
     {
       "id": "d4a4",
@@ -46,7 +46,23 @@
       "lastName": "Chin",
       "birthDate": "2024-07-10",
       "classroom": "Pearl",
-      "status": "N"
+      "status": "Y"
+    },
+    {
+      "id": "9f81",
+      "firstName": "Eni",
+      "lastName": "Abbot",
+      "birthDate": "2024-08-01",
+      "classroom": "Ruby",
+      "status": "Y"
+    },
+    {
+      "id": "dd7b",
+      "firstName": "Kevin",
+      "lastName": "Lips",
+      "birthDate": "2024-07-02",
+      "classroom": "Pearl",
+      "status": "Y"
     }
   ],
   "users": [
@@ -79,32 +95,44 @@
   ],
   "attendance": [
     {
-      "id": "1",
-      "studentId": "1",
-      "date": "2024-07-31",
-      "arrival": "",
-      "departure": ""
-    },
-    {
-      "id": "2",
-      "studentId": "1",
-      "date": "2024-07-25",
-      "arrival": "",
-      "departure": ""
-    },
-    {
-      "id": "3",
+      "id": "e336",
       "studentId": "5cb8",
-      "date": "2024-07-31",
-      "arrival": "",
-      "departure": ""
+      "date": "2024-08-06",
+      "firstName": "Kammy",
+      "lastName": "Aquan",
+      "classroom": "Amber"
     },
     {
-      "id": "4",
+      "id": "353f",
+      "studentId": "595f",
+      "date": "2024-08-06",
+      "firstName": "Lance",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "0ab6",
+      "studentId": "1gh8",
+      "date": "2024-08-06",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "e819",
+      "studentId": "141e",
+      "date": "2024-08-06",
+      "firstName": "Mia",
+      "lastName": "Motley",
+      "classroom": "Ruby"
+    },
+    {
+      "id": "ba98",
       "studentId": "a20c",
-      "date": "2024-07-31",
-      "arrival": "",
-      "departure": ""
+      "date": "2024-08-06",
+      "firstName": "Sofi",
+      "lastName": "Singh",
+      "classroom": "Ruby"
     }
   ]
 }

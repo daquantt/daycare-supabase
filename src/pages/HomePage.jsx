@@ -3,12 +3,9 @@ import ClassList from "../components/ClassList";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-const Homepage = ({ editStudentSubmit }) => {
+const Homepage = () => {
   const [classroom, setClassroom] = useState("");
-  const [obj, setObj] = useState("");
   const [greeting, setGreeting] = useState("Welcome to Daycare");
-  const classButtons = document.getElementById("class-buttons");
-  const classSection = document.getElementById("class-section");
   const [displayToggle, setDisplayToggle] = useState(true);
 
   const loadClass = (event) => {
@@ -24,12 +21,6 @@ const Homepage = ({ editStudentSubmit }) => {
     //hide class section
     setDisplayToggle(!displayToggle);
     setGreeting("Welcome to Daycare");
-  };
-
-  const updateStudent = (param) => {
-    console.log(param);
-
-    // toast.success(`Student added`);
   };
 
   return (
@@ -54,7 +45,7 @@ const Homepage = ({ editStudentSubmit }) => {
       </section>
 
       <div id="class-section" className={`container ${!displayToggle ? "d-block" : "d-none"}`}>
-        <ClassList classroom={classroom} sendToParent={updateStudent} />
+        <ClassList classroom={classroom} />
         <button onClick={returnToClassList} className="btn btn-secondary d-block mx-auto mt-3" type="button">
           Return to Class List
         </button>

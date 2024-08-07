@@ -60,7 +60,10 @@ const StudentListPage = () => {
   const handleSearch = (event) => {
     const searchTerm = event.target.value;
     setSearchValue(searchTerm);
-    const filteredItems = students.filter((student) => student.firstName?.toLowerCase().includes(searchTerm.toLowerCase()));
+    const filteredItems = students.filter(
+      (student) =>
+        student.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     setFilteredStudents(filteredItems);
   };
 

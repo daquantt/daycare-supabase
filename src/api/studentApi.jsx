@@ -21,6 +21,12 @@ export const fetchStudents = async () => {
   // }
 };
 
+export const fetchStudent = async (id) => {
+  const res = await fetch(`/api/students?id=${id}`);
+  const data = await res.json();
+  return data;
+};
+
 // update student
 export const updateStudent = async (student) => {
   const res = await fetch(`/api/students/${student.id}`, {
