@@ -42,7 +42,7 @@ const EditStudentPage = () => {
               Student ID:
             </label>
             <div className="col-md-8">
-              <input type="text" className="form-control" name="studentId" required autoComplete="on" value={id} disabled />
+              <input id="studentId" type="text" className="form-control" name="studentId" required autoComplete="on" value={id} disabled />
             </div>
           </div>
           <div className="form-group row mb-2">
@@ -54,6 +54,7 @@ const EditStudentPage = () => {
                 type="text"
                 className="form-control"
                 name="firstName"
+                id="firstName"
                 required
                 autoComplete="on"
                 value={firstName}
@@ -70,6 +71,7 @@ const EditStudentPage = () => {
                 type="text"
                 className="form-control"
                 name="lastName"
+                id="lastName"
                 required
                 autoComplete="on"
                 value={lastName}
@@ -86,6 +88,7 @@ const EditStudentPage = () => {
                 type="date"
                 className="form-control"
                 name="birthDate"
+                id="birthDate"
                 required
                 autoComplete="on"
                 value={birthDate}

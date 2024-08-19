@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-const DayReport = ({ student }) => {
-  const { firstName, lastName } = student;
+const DayReport = () => {
+  const studentAttendance = useLoaderData;
+
   return (
-    <section>
+    <section className="container my-4">
       <h3 className="text-center fs-3">Student Daily Report</h3>
       <div className="d-flex justify-content-between align-items-end mb-3">
         <p className="fs-2 fw-bold mb-0">
-          {firstName} {lastName}
+          {studentAttendance.firstName} {studentAttendance.lastName}
           <Link to={`/students/${student.id}`} className="btn btn-primary ms-3">
             Student Details
           </Link>

@@ -47,6 +47,7 @@ const AddStudent = () => {
                 type="text"
                 className="form-control"
                 name="firstName"
+                id="firstName"
                 required
                 autoComplete="on"
                 value={firstName}
@@ -63,6 +64,7 @@ const AddStudent = () => {
                 type="text"
                 className="form-control"
                 name="lastName"
+                id="lastName"
                 required
                 autoComplete="on"
                 value={lastName}
@@ -79,6 +81,7 @@ const AddStudent = () => {
                 type="date"
                 className="form-control"
                 name="birthDate"
+                id="birthDate"
                 required
                 autoComplete="on"
                 value={birthDate}

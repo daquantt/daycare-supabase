@@ -2,14 +2,17 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import MainLayout from "./layouts/MainLayout";
 import NotFoundPage from "./pages/NotFoundPage";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import AddStudentPage from "./pages/AddStudentPage";
 import StudentInfoPage from "./pages/StudentInfoPage";
 import { studentLoader } from "./api/studentApi";
-import DayReportPage from "./pages/DayReportPage";
 import EditStudentPage from "./pages/EditStudentPage";
 import StudentListPage from "./pages/StudentListPage";
+import { attendanceLoader } from "./api/attendanceApi";
+import DayReportPage from "./pages/DayReportPage";
+import EditDayReportPage from "./pages/EditDayReportPage";
+import ClassPage from "./pages/ClassPage";
+import { classLoader } from "./api/classApi";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -21,8 +24,9 @@ const App = () => {
         <Route path="/student-list" element={<StudentListPage />} />
         <Route path="/edit-student/:id" element={<EditStudentPage />} loader={studentLoader} />
         <Route path="/students/:id" element={<StudentInfoPage />} loader={studentLoader} />
-        <Route path="/student-report/:id" element={<DayReportPage />} loader={studentLoader} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/day-report/:id" element={<DayReportPage />} loader={attendanceLoader} />
+        <Route path="/edit-day-report/:id" element={<EditDayReportPage />} loader={attendanceLoader} />
+        <Route path="/class/:id" element={<ClassPage />} loader={classLoader} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

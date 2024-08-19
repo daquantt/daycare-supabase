@@ -103,14 +103,6 @@
       "classroom": "Amber"
     },
     {
-      "id": "353f",
-      "studentId": "595f",
-      "date": "2024-08-06",
-      "firstName": "Lance",
-      "lastName": "Aquan",
-      "classroom": "Amber"
-    },
-    {
       "id": "0ab6",
       "studentId": "1gh8",
       "date": "2024-08-06",
@@ -133,6 +125,160 @@
       "firstName": "Sofi",
       "lastName": "Singh",
       "classroom": "Ruby"
+    },
+    {
+      "id": "bce6",
+      "studentId": "5cb8",
+      "date": "2024-08-17",
+      "firstName": "Kammy",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "e658",
+      "studentId": "1gh8",
+      "date": "2024-08-17",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "e4b5",
+      "studentId": "595f",
+      "date": "2024-08-17",
+      "firstName": "Lance",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "f7b0",
+      "studentId": "141e",
+      "date": "2024-08-17",
+      "firstName": "Mia",
+      "lastName": "Motley",
+      "classroom": "Ruby"
+    },
+    {
+      "id": "1fc9",
+      "studentId": "dd7b",
+      "date": "2024-08-17",
+      "firstName": "Kevin",
+      "lastName": "Lips",
+      "classroom": "Pearl"
+    },
+    {
+      "id": "20ae",
+      "studentId": "d4a4",
+      "date": "2024-08-17",
+      "firstName": "Lucas",
+      "lastName": "Chin",
+      "classroom": "Pearl"
+    },
+    {
+      "id": "9458",
+      "studentId": "5cb8",
+      "date": "2024-08-18",
+      "firstName": "Kammy",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "arrival": "09:30",
+      "departure": "16:30",
+      "napStart": "12:30",
+      "napEnd": "14:30",
+      "mood": "Grumpy"
+    },
+    {
+      "id": "443a",
+      "studentId": "d4a4",
+      "date": "2024-08-18",
+      "firstName": "Lucas",
+      "lastName": "Chin",
+      "classroom": "Pearl",
+      "mood": "Grumpy",
+      "napStart": "13:00",
+      "napEnd": ""
+    },
+    {
+      "id": "b42b",
+      "studentId": "595f",
+      "date": "2024-08-18",
+      "firstName": "Lance",
+      "lastName": "Aquan",
+      "classroom": "Amber"
+    },
+    {
+      "id": "c17b",
+      "studentId": "9f81",
+      "date": "2024-08-18",
+      "firstName": "Eni",
+      "lastName": "Abbot",
+      "classroom": "Ruby",
+      "mood": "Sleepy"
+    },
+    {
+      "id": "372b",
+      "studentId": "1gh8",
+      "date": "2024-08-18",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "mood": "Grumpy",
+      "arrival": "16:41",
+      "departure": "16:42",
+      "napStart": "16:41",
+      "napEnd": "16:44"
+    },
+    {
+      "id": "024d",
+      "studentId": "5cb8",
+      "date": "2024-08-19",
+      "firstName": "Kammy",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "mood": "",
+      "arrival": "",
+      "departure": "",
+      "napStart": "",
+      "napEnd": ""
+    },
+    {
+      "id": "1f72",
+      "studentId": "595f",
+      "date": "2024-08-19",
+      "firstName": "Lance",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "mood": "",
+      "arrival": "",
+      "departure": "",
+      "napStart": "",
+      "napEnd": ""
+    },
+    {
+      "id": "bfd9",
+      "studentId": "1gh8",
+      "date": "2024-08-19",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "mood": "",
+      "arrival": "",
+      "departure": "",
+      "napStart": "",
+      "napEnd": ""
+    },
+    {
+      "id": "e8d0",
+      "studentId": "141e",
+      "date": "2024-08-19",
+      "firstName": "Mia",
+      "lastName": "Motley",
+      "classroom": "Ruby",
+      "mood": "",
+      "arrival": "",
+      "departure": "",
+      "napStart": "",
+      "napEnd": ""
     }
   ]
 }
