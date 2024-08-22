@@ -12,12 +12,23 @@ export const addStudentToClass = async (student) => {
   return;
 };
 
-//get all students in class for today's date
-export const fetchTodayStudents = async () => {
-  const today = new Date().toLocaleDateString();
-  const todayAsString = dateFormat(today, "yyyy-mm-dd");
+//get all students attendance
+export const fetchAttendance = async () => {
+  const res = await fetch("/api/attendance?_sort=-date,firstName,classroom");
+  const data = await res.json();
+  return data;
+};
 
-  const res = await fetch(`/api/attendance?date=${todayAsString}`);
+//get all students in class for today's date
+export const fetchTodayStudents = async (date) => {
+  const res = await fetch(`/api/attendance?date=${date}`);
+  const data = await res.json();
+  return data;
+};
+
+//get all of a student's attendance dates
+export const fetchStudentAttendance = async (studentId) => {
+  const res = await fetch(`/api/attendance?studentId=${studentId}`);
   const data = await res.json();
   return data;
 };

@@ -140,9 +140,9 @@ const EditDayReportPage = () => {
           Update
         </button>
 
-        <Link to={`/day-report/${studentAttendance.id}`} type="button" className="btn btn-secondary mt-3 px-4 fs-5">
+        <button onClick={() => navigate(-1)} type="button" className="btn btn-secondary mt-3 px-4 fs-5">
           Return
-        </Link>
+        </button>
       </form>
 
       <section className="mt-4">

@@ -8,7 +8,7 @@ const AddStudent = () => {
   const [lastName, setLastName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [classroom, setClassroom] = useState("");
-  const [status, setStatus] = useState("");
+  const [active, setActive] = useState("");
 
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ const AddStudent = () => {
       lastName,
       birthDate,
       classroom,
-      status,
+      active,
     };
 
     addStudent(newStudent);
@@ -29,7 +29,7 @@ const AddStudent = () => {
     setLastName("");
     setBirthDate("");
     setClassroom("");
-    setStatus("");
+    setActive("");
     return navigate("/register-student");
   };
 
@@ -103,11 +103,11 @@ const AddStudent = () => {
             </div>
           </div>
           <div className="form-group row mb-2">
-            <label htmlFor="status" className="col-md-4 col-form-label text-md-right">
-              Status:
+            <label htmlFor="active" className="col-md-4 col-form-label text-md-right">
+              Active:
             </label>
             <div className="col-md-8">
-              <select id="status" className="form-select" value={status} onChange={(e) => setStatus(e.target.value)}>
+              <select id="active" className="form-select" value={active} onChange={(e) => setActive(e.target.value)}>
                 <option value="">Select option</option>
                 <option value="Y">Y</option>
                 <option value="N">N</option>

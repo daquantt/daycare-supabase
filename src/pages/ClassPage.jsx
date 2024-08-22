@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchStudents } from "../api/studentApi";
+import { fetchStudentsInClass } from "../api/studentApi";
 import { addStudentToClass, fetchTodayStudents } from "../api/attendanceApi";
 import { toast } from "react-toastify";
 import dateFormat from "dateformat";
@@ -11,6 +11,7 @@ const ClassPage = () => {
   const [students, setStudents] = useState([]);
   const [studentData, setStudentData] = useState([]);
   const [classroomName, setClassroomName] = useState(classroom.name);
+  const [classroomColor, setClassroomColor] = useState(classroom.color);
   const [todayStudents, setTodayStudents] = useState([]);
   const [studentsInClassToday, setStudentsInClassToday] = useState([]);
   const [selectValue, setSelectValue] = useState("");
@@ -18,19 +19,21 @@ const ClassPage = () => {
   const [error, setError] = useState();
   const [reload, setReload] = useState(false);
 
+  const today = new Date().toLocaleDateString();
+  const todayAsString = dateFormat(today, "yyyy-mm-dd");
+
   useEffect(() => {
-    const getStudents = async () => {
+    const getStudentsInClass = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchStudents();
+        const StudentData = await fetchStudentsInClass(classroomName, "Y");
         setStudents(StudentData);
       } catch (error) {
         setError(error);
       }
       setLoading(false);
     };
-    getStudents();
-    // setClassroomName(classroom);
+    getStudentsInClass();
   }, []);
 
   //get student data for attendance to class
@@ -47,7 +50,7 @@ const ClassPage = () => {
     const getTodayStudents = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchTodayStudents();
+        const StudentData = await fetchTodayStudents(todayAsString);
         setTodayStudents(StudentData);
       } catch (error) {
         setError(error);
@@ -55,7 +58,7 @@ const ClassPage = () => {
       setLoading(false);
     };
     getTodayStudents();
-  }, [classroomName, reload]);
+  }, [reload]);
   // console.log(todayStudents);
 
   useEffect(() => {
@@ -70,12 +73,10 @@ const ClassPage = () => {
     return <div className="text-center mt-5">Something went wrong. Please try again...</div>;
   }
 
-  //list student in the class
-  const classStudents = students.filter((student) => student.classroom === classroomName && student.status === "Y");
-  //list students in class on todays date
-  const today = new Date().toLocaleDateString();
-  const todayAsString = dateFormat(today, "yyyy-mm-dd");
+  //list active students in the class
+  const classStudents = students.filter((student) => student.active === "Y");
 
+  //list students in class on todays date for dropdown
   const nameList = classStudents.map((student) => (
     <option key={student.id} value={student.id}>
       {student.firstName} {student.lastName}
@@ -92,7 +93,6 @@ const ClassPage = () => {
     // if student in class already, notify user and return
     const isStudentPresent = () => {
       const idArray = Array.from(studentsInClassToday, (item) => item.studentId);
-      console.log(idArray);
       if (idArray.includes(selectValue)) {
         return true;
       } else return false;
@@ -135,7 +135,7 @@ const ClassPage = () => {
             <option value="">Select student</option>
             {nameList}
           </select>
-          <button className="btn btn-primary" type="submit">
+          <button className={`btn btn-outline-${classroomColor}`} type="submit">
             Add to Attendance
           </button>
         </div>
@@ -143,7 +143,7 @@ const ClassPage = () => {
       <ul id="classListing" className="d-flex justify-content-between gap-2 p-0 mb-0">
         {studentsInClassToday.map((attendance) => {
           return (
-            <Link key={attendance.id} to={`/day-report/${attendance.id}`} type="button" className="btn btn-outline-primary">
+            <Link key={attendance.id} to={`/day-report/${attendance.id}`} type="button" className={`btn btn-${classroomColor}`}>
               <li>
                 {attendance.firstName} {attendance.lastName}
               </li>

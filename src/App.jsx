@@ -13,6 +13,8 @@ import DayReportPage from "./pages/DayReportPage";
 import EditDayReportPage from "./pages/EditDayReportPage";
 import ClassPage from "./pages/ClassPage";
 import { classLoader } from "./api/classApi";
+import CreateAttendancePage from "./pages/CreateAttendancePage";
+import ViewAttendancePage from "./pages/ViewAttendancePage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -27,6 +29,8 @@ const App = () => {
         <Route path="/day-report/:id" element={<DayReportPage />} loader={attendanceLoader} />
         <Route path="/edit-day-report/:id" element={<EditDayReportPage />} loader={attendanceLoader} />
         <Route path="/class/:id" element={<ClassPage />} loader={classLoader} />
+        <Route path="/create-attendance" element={<CreateAttendancePage />} />
+        <Route path="/view-attendance" element={<ViewAttendancePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>

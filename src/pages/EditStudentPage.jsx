@@ -10,7 +10,7 @@ const EditStudentPage = () => {
   const [lastName, setLastName] = useState(student.lastName);
   const [birthDate, setBirthDate] = useState(student.birthDate);
   const [classroom, setClassroom] = useState(student.classroom);
-  const [status, setStatus] = useState(student.status);
+  const [active, setActive] = useState(student.active);
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -24,7 +24,7 @@ const EditStudentPage = () => {
       lastName,
       birthDate,
       classroom,
-      status,
+      active,
     };
 
     updateStudent(editStudent);
@@ -110,11 +110,11 @@ const EditStudentPage = () => {
             </div>
           </div>
           <div className="form-group row mb-2">
-            <label htmlFor="status" className="col-md-4 col-form-label text-md-right">
-              Class:
+            <label htmlFor="active" className="col-md-4 col-form-label text-md-right">
+              Active:
             </label>
             <div className="col-md-8">
-              <select id="status" className="form-select" value={status} onChange={(e) => setStatus(e.target.value)}>
+              <select id="active" className="form-select" value={active} onChange={(e) => setActive(e.target.value)}>
                 <option value="">Select option</option>
                 <option value="Y">Y</option>
                 <option value="N">N</option>

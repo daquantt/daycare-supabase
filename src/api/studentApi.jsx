@@ -21,7 +21,14 @@ export const fetchStudents = async () => {
   // }
 };
 
-export const fetchStudent = async (id) => {
+//get all students in a class
+export const fetchStudentsInClass = async (classroom) => {
+  const res = await fetch(`/api/students/?classroom=${classroom}`);
+  const data = await res.json();
+  return data;
+};
+
+export const fetchOneStudent = async (id) => {
   const res = await fetch(`/api/students?id=${id}`);
   const data = await res.json();
   return data;

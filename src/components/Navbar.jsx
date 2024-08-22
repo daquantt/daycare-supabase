@@ -47,6 +47,24 @@ const Navbar = () => {
                 </ul>
               </li>
 
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Attendance
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <NavLink className="dropdown-item" to="/create-attendance">
+                      Create Attendance
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/view-attendance">
+                      View Attendance
+                    </NavLink>
+                  </li>
+                </ul>
+              </li>
+
               <li className="nav-item">
                 <NavLink className={linkClass} to="/student">
                   About

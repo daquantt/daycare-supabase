@@ -1,29 +1,30 @@
-import { useEffect, useState } from "react";
-import { fetchStudents } from "../api/studentApi";
-import dateFormat, { masks } from "dateformat";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { fetchAttendance } from "../api/attendanceApi";
+import { fetchStudents } from "../api/studentApi";
+import { timeCalculator } from "../components/TimeCalculator";
 import { FaEdit } from "react-icons/fa";
 
-const StudentListPage = () => {
-  const [students, setStudents] = useState([]);
+const ViewAttendancePage = () => {
+  const [attendance, setAttendance] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
   const [searchValue, setSearchValue] = useState("");
   const [filteredStudents, setFilteredStudents] = useState([]);
 
   useEffect(() => {
-    const getStudents = async () => {
+    const getAttendance = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchStudents();
-        setStudents(StudentData);
+        const StudentData = await fetchAttendance();
+        setAttendance(StudentData);
         setFilteredStudents(StudentData);
       } catch (error) {
         setError(error);
       }
       setLoading(false);
     };
-    getStudents();
+    getAttendance();
   }, []);
 
   if (loading) {
@@ -35,20 +36,18 @@ const StudentListPage = () => {
   }
 
   const showStudents = () =>
-    filteredStudents.map((student) => {
-      const birthDate = new Date(student.birthDate);
-
+    filteredStudents.map((attendance) => {
       return (
-        <tr key={student.id}>
+        <tr key={attendance.id}>
+          <td>{attendance.date}</td>
           <td>
-            {student.firstName} {student.lastName}
+            {attendance.firstName} {attendance.lastName}
           </td>
-          <td>{student.id}</td>
-          <td>{dateFormat(birthDate, "dd-mmm-yyyy")}</td>
-          <td>{student.classroom}</td>
-          <td>{student.active}</td>
+          <td>{attendance.classroom}</td>
+          <td>{attendance.arrival}</td>
+          <td>{attendance.departure}</td>
           <td>
-            <Link to={`/edit-student/${student.id}`}>
+            <Link to={`/edit-day-report/${attendance.id}`}>
               <FaEdit />
             </Link>
           </td>
@@ -60,16 +59,18 @@ const StudentListPage = () => {
   const handleSearch = (event) => {
     const searchTerm = event.target.value;
     setSearchValue(searchTerm);
-    const filteredItems = students.filter(
+    const filteredItems = attendance.filter(
       (student) =>
-        student.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName?.toLowerCase().includes(searchTerm.toLowerCase())
+        student.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        student.lastName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        student.classroom?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredStudents(filteredItems);
   };
 
   return (
     <section className="container mt-4">
-      <h2>Student Listing</h2>
+      <h2>Student Attendance Listing</h2>
 
       <div className="w-25 ms-auto mb-4">
         <input
@@ -89,25 +90,25 @@ const StudentListPage = () => {
             <thead>
               <tr>
                 <th scope="col" className="fw-bold">
+                  Date
+                </th>
+                <th scope="col" className="fw-bold">
                   Full Name
-                </th>
-                <th scope="col" className="fw-bold">
-                  ID
-                </th>
-                <th scope="col" className="fw-bold">
-                  Date of Birth
                 </th>
                 <th scope="col" className="fw-bold">
                   Classroom
                 </th>
                 <th scope="col" className="fw-bold">
-                  Active
+                  Check In
+                </th>
+                <th scope="col" className="fw-bold">
+                  Check Out
                 </th>
                 <th>Edit</th>
               </tr>
             </thead>
             <tbody id="" className="table-group-divider">
-              {students && students.length > 0 ? (
+              {attendance && attendance.length > 0 ? (
                 showStudents()
               ) : (
                 <tr>
@@ -124,4 +125,4 @@ const StudentListPage = () => {
   );
 };
 
-export default StudentListPage;
+export default ViewAttendancePage;
