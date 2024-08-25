@@ -121,7 +121,7 @@ const ClassPage = () => {
   }
 
   return (
-    <section className="w-75 mt-3 mx-auto p-4 ">
+    <section className="container col-lg-8 mt-3 pb-4">
       <div className="d-flex justify-content-between align-items-center">
         <h3 className="">{classroomName} Class Attendance</h3>
         <Link to={"/"} className="btn btn-secondary">
@@ -129,7 +129,7 @@ const ClassPage = () => {
         </Link>
       </div>
       <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p>
-      <form onSubmit={addStudentToAttendance} className="col-md-8 col-lg-6 ms-auto mb-4">
+      <form onSubmit={addStudentToAttendance} className="col-sm-8 col-lg-6 ms-auto mb-4">
         <div className="input-group ms-auto">
           <select className="form-select" id="searchBar" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
             <option value="">Select student</option>

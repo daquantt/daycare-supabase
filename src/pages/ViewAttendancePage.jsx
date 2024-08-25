@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchAttendance } from "../api/attendanceApi";
-import { fetchStudents } from "../api/studentApi";
-import { timeCalculator } from "../components/TimeCalculator";
 import { FaEdit } from "react-icons/fa";
 import { timeFormatter } from "../components/DateFormatter";
 
@@ -70,10 +68,10 @@ const ViewAttendancePage = () => {
   };
 
   return (
-    <section className="container mt-4">
+    <section className="container col-xl-8 mt-4 pb-5">
       <h2>Student Attendance Listing</h2>
 
-      <div className="w-25 ms-auto mb-4">
+      <div className="col-md-6 col-lg-4 ms-auto my-3">
         <input
           name="search"
           className="form-control"

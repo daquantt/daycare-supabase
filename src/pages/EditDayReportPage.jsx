@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { updateAttendance } from "../api/attendanceApi";
 import { toast } from "react-toastify";
-import dateFormat from "dateformat";
 import { dateFormatter } from "../components/DateFormatter";
 
 const EditDayReportPage = () => {
@@ -40,21 +39,21 @@ const EditDayReportPage = () => {
   };
 
   return (
-    <section className="container my-4">
-      <h3 className="text-center fs-3">Update Student Daily Report</h3>
+    <section className="container col-xl-8 pb-5 mt-4">
+      <h3 className="text-center fs-3 mb-4">Update Student Daily Report</h3>
       <div className="d-flex justify-content-between align-items-end mb-3">
         <p className="fs-2 fw-bold mb-0">
           {firstName} {lastName}
         </p>
-        <p className="fs-5 mb-2">Date: {dateFormatter(date)}</p>
+        <p className="fs-5 my-1">Date: {dateFormatter(date)}</p>
       </div>
       <form onSubmit={submitForm}>
-        <div className="d-flex mb-2">
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="arrival" className="col-md-5 col-form-label text-md-right">
+        <div className="row mb-3">
+          <div className="form-group row col col-lg-4 px-0 mx-auto">
+            <label htmlFor="arrival" className="col-lg-5 col-form-label">
               Arrival:
             </label>
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <input
                 type="time"
                 className="form-control"
@@ -66,11 +65,11 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="departure" className="col-md-5 col-form-label text-md-right">
+          <div className="form-group row col col-lg-4 px-0 mx-auto">
+            <label htmlFor="departure" className="col-lg-5 col-form-label">
               Departure:
             </label>
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <input
                 type="time"
                 className="form-control"
@@ -82,14 +81,14 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <p className="w-50">Total Hours: 3.5</p>
+          <p className="col-12 col-lg-4 my-1">Total Hours: 3.5</p>
         </div>
-        <div className="d-flex mb-2">
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="napStart" className="col-md-5 col-form-label text-md-right">
+        <div className="row mb-4">
+          <div className="form-group row col col-lg-4 px-0 mx-auto">
+            <label htmlFor="napStart" className="col-lg-5 col-form-label">
               Nap Start:
             </label>
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <input
                 type="time"
                 className="form-control"
@@ -101,11 +100,11 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="napEnd" className="col-md-5 col-form-label text-md-right">
+          <div className="form-group row col col-lg-4 px-0 mx-auto">
+            <label htmlFor="napEnd" className="col-lg-5 col-form-label">
               Nap End:
             </label>
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <input
                 type="time"
                 className="form-control"
@@ -117,13 +116,13 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <p className="w-50">Hours: 2.25</p>
+          <p className="col-12 col-lg-4 my-1">Hours: 2.25</p>
         </div>
         <div className="form-group row mb-2">
-          <label htmlFor="mood" className="col-md-2 col-form-label text-md-right">
+          <label htmlFor="mood" className="col-lg-2 col-form-label text-md-right">
             Today I was:
           </label>
-          <div className="col-md-3">
+          <div className="col-lg-3">
             <select id="mood" className="form-select" value={mood} onChange={(e) => setMood(e.target.value)}>
               <option value="">Select option</option>
               <option value="Happy">Happy</option>
@@ -136,13 +135,15 @@ const EditDayReportPage = () => {
           </div>
         </div>
 
-        <button id="inputSubmitBtn" type="submit" className="btn btn-success mt-3 me-3 px-4 fs-5">
-          Update
-        </button>
+        <div className="d-flex justify-content-center align-content-center mt-4">
+          <button id="inputSubmitBtn" type="submit" className="btn btn-success px-4 me-4 fs-5">
+            Update
+          </button>
 
-        <button onClick={() => navigate(-1)} type="button" className="btn btn-secondary mt-3 px-4 fs-5">
-          Return
-        </button>
+          <button onClick={() => navigate(-1)} type="button" className="btn btn-secondary px-4 fs-5">
+            Return
+          </button>
+        </div>
       </form>
 
       <section className="mt-4">

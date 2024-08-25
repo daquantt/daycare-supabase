@@ -68,10 +68,10 @@ const StudentListPage = () => {
   };
 
   return (
-    <section className="container mt-4">
+    <section className="container col-xl-8 mt-4 pb-5">
       <h2>Student Listing</h2>
 
-      <div className="w-25 ms-auto mb-4">
+      <div className="col-6 col-md-4 ms-auto mb-4">
         <input
           name="search"
           className="form-control"

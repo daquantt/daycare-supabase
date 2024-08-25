@@ -76,11 +76,6 @@ const Navbar = () => {
               </li>
 
               <li className="nav-item">
-                <NavLink className={linkClass} to="/student">
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink className={linkClass} to="/contact">
                   Contact
                 </NavLink>

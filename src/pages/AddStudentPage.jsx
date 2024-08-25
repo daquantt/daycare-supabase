@@ -34,11 +34,11 @@ const AddStudent = () => {
   };
 
   return (
-    <section>
+    <section className="container pb-3">
       <h2 className="text-center my-4">Register Student</h2>
-      <div className="mx-auto w-50">
-        <form onSubmit={submitForm} className="container p-3 mx-auto border rounded-3">
-          <div className="form-group row mb-2">
+      <div className="mx-auto row">
+        <form onSubmit={submitForm} className="col-sm-8 col-lg-6 p-3 mx-auto border rounded-3">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="firstName" className="col-md-4 col-form-label text-md-right">
               First Name:
             </label>
@@ -55,7 +55,7 @@ const AddStudent = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="lastName" className="col-md-4 col-form-label text-md-right">
               Last Name:
             </label>
@@ -72,7 +72,7 @@ const AddStudent = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="birthDate" className="col-md-4 col-form-label text-md-right">
               Date of Birth:
             </label>
@@ -89,7 +89,7 @@ const AddStudent = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="classroom" className="col-md-4 col-form-label text-md-right">
               Class:
             </label>
@@ -102,7 +102,7 @@ const AddStudent = () => {
               </select>
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="active" className="col-md-4 col-form-label text-md-right">
               Active:
             </label>
@@ -116,7 +116,7 @@ const AddStudent = () => {
           </div>
           <div className="d-flex justify-content-center align-content-center">
             <button id="inputSubmitBtn" type="submit" className="btn btn-success w-100 mt-3 px-4 fs-5">
-              Save
+              Register
             </button>
           </div>
         </form>

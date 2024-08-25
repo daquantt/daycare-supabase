@@ -33,11 +33,11 @@ const EditStudentPage = () => {
   };
 
   return (
-    <section>
+    <section className="container pb-3">
       <h2 className="text-center my-4">Update Student</h2>
-      <div className="mx-auto w-50">
-        <form onSubmit={submitForm} className="container p-3 mx-auto border rounded-3">
-          <div className="form-group row mb-2">
+      <div className="mx-auto row">
+        <form onSubmit={submitForm} className="col-sm-8 col-lg-6 p-3 mx-auto border rounded-3">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="studentId" className="col-md-4 col-form-label text-md-right">
               Student ID:
             </label>
@@ -45,7 +45,7 @@ const EditStudentPage = () => {
               <input id="studentId" type="text" className="form-control" name="studentId" required autoComplete="on" value={id} disabled />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="firstName" className="col-md-4 col-form-label text-md-right">
               First Name:
             </label>
@@ -62,7 +62,7 @@ const EditStudentPage = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="lastName" className="col-md-4 col-form-label text-md-right">
               Last Name:
             </label>
@@ -79,7 +79,7 @@ const EditStudentPage = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="birthDate" className="col-md-4 col-form-label text-md-right">
               Date of Birth:
             </label>
@@ -96,7 +96,7 @@ const EditStudentPage = () => {
               />
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="classroom" className="col-md-4 col-form-label text-md-right">
               Class:
             </label>
@@ -109,7 +109,7 @@ const EditStudentPage = () => {
               </select>
             </div>
           </div>
-          <div className="form-group row mb-2">
+          <div className="form-group row mb-2 mb-md-3">
             <label htmlFor="active" className="col-md-4 col-form-label text-md-right">
               Active:
             </label>
@@ -122,10 +122,10 @@ const EditStudentPage = () => {
             </div>
           </div>
           <div className="d-flex justify-content-center align-content-center">
-            <button id="inputSubmitBtn" type="submit" className="btn btn-success w-25 mt-3 me-3 px-4 fs-5">
+            <button id="inputSubmitBtn" type="submit" className="btn btn-success mt-3 me-3 px-4 fs-5">
               Update
             </button>
-            <Link to={`/student-list`} className="btn btn-danger w-25 mt-3 ms-3 px-4 fs-5">
+            <Link to={`/student-list`} className="btn btn-secondary mt-3 ms-3 px-4 fs-5">
               Return
             </Link>
           </div>

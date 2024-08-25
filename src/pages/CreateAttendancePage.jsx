@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addStudentToClass, fetchStudentAttendance } from "../api/attendanceApi";
 import { toast } from "react-toastify";
 import { fetchStudents } from "../api/studentApi";
@@ -127,47 +127,63 @@ const CreateAttendancePage = () => {
   };
 
   return (
-    <section className="container my-4">
+    <section className="container col-xl-8 mt-4 pb-4">
       <h3 className="text-center fs-3 mb-4">Create Student Attendance</h3>
 
       <form onSubmit={submitForm}>
-        <div className="form-group row mb-2">
-          <label htmlFor="date" className="col-md-2 col-form-label text-md-right">
-            Date:
-          </label>
-          <div className="col-md-4">
-            <input
-              type="date"
-              className="form-control"
-              name="date"
-              id="date"
-              required
-              autoComplete="on"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
+        <div className="row mb-2">
+          <div className="form-group row col-md-6 px-0 mx-auto">
+            <label htmlFor="studentId" className="col-md-4 col-form-label">
+              Student:
+            </label>
+            <div className="col-md-8">
+              <select id="studentId" className="form-select" value={selectStudentValue} onChange={(e) => setSelectStudentValue(e.target.value)}>
+                <option value="">Select student</option>
+                {studentList}
+              </select>
+            </div>
+          </div>
+          <div className="form-group row col-md-6 px-0 mx-auto">
+            <label htmlFor="date" className="col-md-4 col-form-label">
+              Date:
+            </label>
+            <div className="col-md-8 pe-md-0">
+              <input
+                type="date"
+                className="form-control"
+                name="date"
+                id="date"
+                required
+                autoComplete="on"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
           </div>
         </div>
 
-        <div className="form-group row mb-2">
-          <label htmlFor="studentId" className="col-md-2 col-form-label">
-            Student:
-          </label>
-          <div className="col-md-4">
-            <select id="studentId" className="form-select" value={selectStudentValue} onChange={(e) => setSelectStudentValue(e.target.value)}>
-              <option value="">Select student</option>
-              {studentList}
-            </select>
+        <div className="row mb-4">
+          <div className="form-group row col-6 px-0 mx-auto">
+            <label htmlFor="studentId" className="col-md-4 col-form-label">
+              ID:
+            </label>
+            <div className="col-md-8">
+              <input type="text" className="form-control" disabled name="studentId" id="studentId" value={student && student.id} />
+            </div>
           </div>
-          <div className="col-md-5 d-flex justify-content-between align-items-center">
-            <p className="my-auto w-50">Student ID: {student && student.id}</p>
-            <p className="my-auto w-50">Class: {student && student.classroom}</p>
+          <div className="form-group row col-6 px-0 mx-auto">
+            <label htmlFor="classroom" className="col-md-4 col-form-label">
+              Classroom:
+            </label>
+            <div className="col-md-8 pe-md-0">
+              <input type="text" className="form-control" disabled name="classroom" id="classroom" value={student && student.classroom} />
+            </div>
           </div>
         </div>
 
-        <div className="d-flex mb-2">
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="arrival" className="col-md-5 col-form-label text-md-right">
+        <div className="row mb-3">
+          <div className="form-group row col col-md-4 px-0 mx-auto">
+            <label htmlFor="arrival" className="col-md-5 col-form-label">
               Arrival:
             </label>
             <div className="col-md-7">
@@ -182,8 +198,8 @@ const CreateAttendancePage = () => {
               />
             </div>
           </div>
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="departure" className="col-md-5 col-form-label text-md-right">
+          <div className="form-group row col col-md-4 px-0 mx-auto">
+            <label htmlFor="departure" className="col-md-5 col-form-label">
               Departure:
             </label>
             <div className="col-md-7">
@@ -198,12 +214,12 @@ const CreateAttendancePage = () => {
               />
             </div>
           </div>
-          <p className="w-50 mb-0 mt-1">Total Time: {totalAttendanceTime}</p>
+          <p className="col-12 col-md-4 my-1">Total Time: {totalAttendanceTime}</p>
         </div>
 
-        <div className="d-flex mb-2">
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="napStart" className="col-md-5 col-form-label text-md-right">
+        <div className="row mb-3 mb-md-4">
+          <div className="form-group row col col-md-4 px-0 mx-auto">
+            <label htmlFor="napStart" className="col-md-5 col-form-label">
               Nap Start:
             </label>
             <div className="col-md-7">
@@ -218,8 +234,8 @@ const CreateAttendancePage = () => {
               />
             </div>
           </div>
-          <div className="form-group row me-4 w-100">
-            <label htmlFor="napEnd" className="col-md-5 col-form-label text-md-right">
+          <div className="form-group row col col-md-4 px-0 mx-auto">
+            <label htmlFor="napEnd" className="col-md-5 col-form-label">
               Nap End:
             </label>
             <div className="col-md-7">
@@ -234,14 +250,14 @@ const CreateAttendancePage = () => {
               />
             </div>
           </div>
-          <p className="w-50 mb-0 mt-1">Hours: {totalNapTime}</p>
+          <p className="col-12 col-md-4 my-1">Total Time: {totalNapTime}</p>
         </div>
 
-        <div className="form-group row mb-2">
-          <label htmlFor="mood" className="col-md-2 col-form-label text-md-right">
+        <div className="form-group row col-md-6 mb-5">
+          <label htmlFor="mood" className="col-md-4 col-form-label">
             Today I was:
           </label>
-          <div className="col-md-3">
+          <div className="col-md-8 pe-md-0">
             <select id="mood" className="form-select" value={mood} onChange={(e) => setMood(e.target.value)}>
               <option value="">Select option</option>
               <option value="Happy">Happy</option>
@@ -254,7 +270,7 @@ const CreateAttendancePage = () => {
           </div>
         </div>
 
-        <button id="inputSubmitBtn" type="submit" className="btn btn-success d-block mt-3 mx-auto px-5 fs-5">
+        <button id="inputSubmitBtn" type="submit" className="btn btn-success d-block mx-auto px-5 fs-5">
           Create
         </button>
       </form>

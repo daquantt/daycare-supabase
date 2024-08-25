@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchStudents } from "../api/studentApi";
-import { fetchClassroomAttendance, fetchStudentAttendance } from "../api/attendanceApi";
+import { fetchClassroomAttendance } from "../api/attendanceApi";
 import moment from "moment";
-import { timeCalculator } from "../components/TimeCalculator";
 
 const ClassHoursReportPage = () => {
   const [selectClassValue, setSelectClassValue] = useState();
@@ -106,15 +105,15 @@ const ClassHoursReportPage = () => {
     });
 
   return (
-    <section className="container mt-4">
+    <section className="container col-xl-8 mt-4 pb-5">
       <h2 className="text-center mb-4">Monthly Hours Report by Class</h2>
 
-      <div className="d-lg-flex justify-content-between align-items-center mb-4">
-        <div className="d-flex mb-2 me-5">
-          <label htmlFor="classroom" className="col-form-label me-3">
+      <div className="row mb-4">
+        <div className="form-group row col-md-5 px-0 mx-auto mb-2">
+          <label htmlFor="classroom" className="col-4 col-form-label">
             Classroom:
           </label>
-          <div>
+          <div className="col-8">
             <select id="classroom" className="form-select" value={selectClassValue} onChange={(e) => setSelectClassValue(e.target.value)}>
               <option value="">Select classroom</option>
               <option value="Amber">Amber</option>
@@ -123,11 +122,11 @@ const ClassHoursReportPage = () => {
             </select>
           </div>
         </div>
-        <div className="d-flex mb-2 me-5">
-          <label htmlFor="month" className="col-form-label me-3">
+        <div className="form-group row col-md-4 px-0 mx-auto mb-2">
+          <label htmlFor="month" className="col-4 col-form-label">
             Month:
           </label>
-          <div>
+          <div className="col-8">
             <select id="month" className="form-select" value={selectMonthValue} onChange={(e) => setSelectMonthValue(e.target.value)}>
               <option value="0">January</option>
               <option value="1">February</option>
@@ -144,11 +143,11 @@ const ClassHoursReportPage = () => {
             </select>
           </div>
         </div>
-        <div className="d-flex mb-2 me-5">
-          <label htmlFor="year" className="col-form-label me-3">
+        <div className="form-group row col-md-3 px-0 mx-auto mb-2">
+          <label htmlFor="year" className="col-4 col-form-label">
             Year:
           </label>
-          <div>
+          <div className="col-8">
             <select id="year" className="form-select" value={selectYearValue} onChange={(e) => setSelectYearValue(e.target.value)}>
               <option value="">Select year</option>
               <option value={moment().year()}>{moment().year()}</option>

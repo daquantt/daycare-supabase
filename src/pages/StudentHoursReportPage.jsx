@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { fetchStudents } from "../api/studentApi";
 import { fetchStudentAttendance } from "../api/attendanceApi";
 import moment from "moment";
-import { timeCalculator } from "../components/TimeCalculator";
 
 const StudentHoursReportPage = () => {
   const [selectStudentValue, setSelectStudentValue] = useState();
@@ -114,34 +113,34 @@ const StudentHoursReportPage = () => {
     });
 
   return (
-    <section className="container mt-4">
+    <section className="container col-xl-8 mt-4 pb-5">
       <h2 className="text-center mb-4">Monthly Hours Report by Student</h2>
 
-      <div className="d-lg-flex justify-content-between align-items-center mb-4">
-        <div className="d-flex mb-2 me-5">
-          <label htmlFor="student" className="col-form-label me-3">
+      <div className="row mb-4">
+        <div className="form-group row col-md-4 px-0 mx-auto mb-2">
+          <label htmlFor="student" className="col-4 col-form-label">
             Student:
           </label>
-          <div className="">
+          <div className="col-8">
             <select id="student" className="form-select" value={selectStudentValue} onChange={(e) => setSelectStudentValue(e.target.value)}>
               <option value="">Select student</option>
               {studentList}
             </select>
           </div>
         </div>
-        <div className="d-flex mb-2 me-5">
-          <label htmlFor="studentId" className="col-form-label me-3">
-            Student ID:
+        <div className="form-group row col-md-4 px-0 mx-auto mb-2">
+          <label htmlFor="studentId" className="col-4 col-form-label">
+            ID:
           </label>
-          <div className="">
+          <div className="col-8">
             <input type="text" className="form-control" name="studentId" id="studentId" disabled placeholder={student && student.id} />
           </div>
         </div>
-        <div className="d-flex mb-2">
-          <label htmlFor="classroom" className="col-form-label me-3">
+        <div className="form-group row col-md-4 px-0 mx-auto mb-2">
+          <label htmlFor="classroom" className="col-4 col-form-label">
             Class:
           </label>
-          <div className="">
+          <div className="col-8">
             <input type="text" className="form-control" name="classroom" id="classroom" disabled placeholder={student && student.classroom} />
           </div>
         </div>
