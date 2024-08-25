@@ -27,7 +27,7 @@ export const fetchTodayStudents = async (date) => {
 };
 
 //get all of a student's attendance dates
-export const fetchStudentAttendance = async (classroom) => {
+export const fetchStudentAttendance = async (studentId) => {
   const res = await fetch(`/api/attendance?studentId=${studentId}`);
   const data = await res.json();
   return data;

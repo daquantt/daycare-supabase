@@ -12,6 +12,8 @@ const StudentHoursReportPage = () => {
   const [error, setError] = useState("");
   const [student, setStudent] = useState("");
 
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
   useEffect(() => {
     const getStudents = async () => {
       setLoading(true);
@@ -51,7 +53,6 @@ const StudentHoursReportPage = () => {
     getStudent();
     getStudentAttendance();
   }, [selectStudentValue]);
-  // console.log(student && student.id);
 
   if (loading) {
     return <div className="text-center mt-5">Loading...</div>;
@@ -70,26 +71,47 @@ const StudentHoursReportPage = () => {
       </option>
     ));
 
-  //func to calculate total hours for the month
-  function monthlyHours() {
-    //filter on dates within current month
-    let currentMonthAttendance = studentAttendance.filter((attendance) => moment(attendance.date).month() === moment().month());
-
-    console.log(currentMonthAttendance);
-
-    let times = [];
-    currentMonthAttendance.forEach((item) => {
-      //calculate duration and push to times array
-      let time = moment.duration(item.departure, "HH:mm").subtract(moment.duration(item.arrival, "HH:mm"));
-      times.push(time);
-    });
-
-    console.log(times);
-    //add all times using reduce method
-
-    let totalTime = times.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration());
-    return [Math.floor(totalTime.asHours()), totalTime.minutes()].join(":");
+  //get last 12 months
+  let previous12Months = [];
+  for (let i = 0; i < 12; i++) {
+    const now = new Date();
+    let previousMonth = now.setMonth(now.getMonth() - i);
+    previous12Months.push(previousMonth);
   }
+  console.log(previous12Months);
+
+  //func to calculate total hours for the month
+  const showMonths = () =>
+    previous12Months.map((month) => {
+      //filter on dates within current month
+      let currentMonthAttendance = studentAttendance.filter(
+        (attendance) =>
+          moment(attendance.date).month() === new Date(month).getMonth() && moment(attendance.date).year() === new Date(month).getFullYear()
+      );
+      console.log(currentMonthAttendance);
+
+      let times = [];
+      currentMonthAttendance.forEach((item) => {
+        //calculate duration and push to times array
+        let time = moment.duration(item.departure, "HH:mm").subtract(moment.duration(item.arrival, "HH:mm"));
+        times.push(time);
+      });
+      console.log(times);
+
+      //add all times using reduce method
+      let totalTime = times.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration());
+
+      return (
+        <tr>
+          <td>
+            {months[new Date(month).getMonth()]} {new Date(month).getFullYear()}
+          </td>
+          <td>
+            {Math.floor(totalTime.asHours())}h {totalTime.minutes()}m
+          </td>
+        </tr>
+      );
+    });
 
   return (
     <section className="container mt-4">
@@ -140,10 +162,7 @@ const StudentHoursReportPage = () => {
             </thead>
             <tbody id="" className="table-group-divider">
               {studentAttendance && studentAttendance.length > 0 ? (
-                <tr>
-                  <td>{moment().format("MMMM")}</td>
-                  <td>{monthlyHours()}</td>
-                </tr>
+                showMonths()
               ) : (
                 <tr>
                   <td colSpan="4" className="text-center">
