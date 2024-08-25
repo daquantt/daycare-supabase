@@ -12,13 +12,9 @@ export const addStudent = async (newStudent) => {
 
 //get all students
 export const fetchStudents = async () => {
-  // try {
   const res = await fetch("/api/students?_sort=firstName");
   const data = await res.json();
   return data;
-  // } catch (error) {
-  //   console.log("There was a problem with the fetchStudents operation:", error);
-  // }
 };
 
 //get all students in a class

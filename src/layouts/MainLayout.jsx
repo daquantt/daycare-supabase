@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MainLayout = () => {
   return (
-    <div className="bg-dark text-light vh-100">
+    <div className="bg-dark text-light min-vh-100">
       <Navbar />
       <Outlet />
       <ToastContainer />

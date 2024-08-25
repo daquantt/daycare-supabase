@@ -14,7 +14,7 @@ export const addStudentToClass = async (student) => {
 
 //get all students attendance
 export const fetchAttendance = async () => {
-  const res = await fetch("/api/attendance?_sort=-date,firstName,classroom");
+  const res = await fetch("/api/attendance?_sort=-date,firstName,classroom&_limit=31");
   const data = await res.json();
   return data;
 };
@@ -27,8 +27,15 @@ export const fetchTodayStudents = async (date) => {
 };
 
 //get all of a student's attendance dates
-export const fetchStudentAttendance = async (studentId) => {
+export const fetchStudentAttendance = async (classroom) => {
   const res = await fetch(`/api/attendance?studentId=${studentId}`);
+  const data = await res.json();
+  return data;
+};
+
+//get students attendance by classroom
+export const fetchClassroomAttendance = async (classroom) => {
+  const res = await fetch(`/api/attendance?classroom=${classroom}`);
   const data = await res.json();
   return data;
 };

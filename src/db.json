@@ -122,19 +122,6 @@
       "napEnd": ""
     },
     {
-      "id": "372b",
-      "studentId": "1gh8",
-      "date": "2024-08-18",
-      "firstName": "Yendi",
-      "lastName": "Aquan",
-      "classroom": "Amber",
-      "mood": "Grumpy",
-      "arrival": "16:41",
-      "departure": "16:42",
-      "napStart": "16:41",
-      "napEnd": "16:44"
-    },
-    {
       "id": "024d",
       "studentId": "5cb8",
       "date": "2024-08-19",
@@ -213,19 +200,6 @@
       "napEnd": ""
     },
     {
-      "id": "525c",
-      "studentId": "1gh8",
-      "date": "2024-08-20",
-      "firstName": "Yendi",
-      "lastName": "Aquan",
-      "classroom": "Amber",
-      "arrival": "",
-      "departure": "",
-      "napStart": "",
-      "napEnd": "",
-      "mood": "Sad"
-    },
-    {
       "id": "ddc3",
       "studentId": "9f81",
       "date": "2024-08-20",
@@ -233,7 +207,7 @@
       "lastName": "Abbot",
       "classroom": "Ruby",
       "arrival": "08:30",
-      "departure": "",
+      "departure": "17:00",
       "napStart": "11:30",
       "napEnd": "",
       "mood": "Sleepy"
@@ -351,6 +325,32 @@
       "classroom": "Amber",
       "arrival": "09:45",
       "departure": "16:00",
+      "napStart": "",
+      "napEnd": "",
+      "mood": ""
+    },
+    {
+      "id": "b6e0",
+      "studentId": "1gh8",
+      "date": "2024-08-02",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "arrival": "09:30",
+      "departure": "16:30",
+      "napStart": "",
+      "napEnd": "",
+      "mood": ""
+    },
+    {
+      "id": "d950",
+      "studentId": "1gh8",
+      "date": "2023-01-31",
+      "firstName": "Yendi",
+      "lastName": "Aquan",
+      "classroom": "Amber",
+      "arrival": "10:00",
+      "departure": "16:15",
       "napStart": "",
       "napEnd": "",
       "mood": ""

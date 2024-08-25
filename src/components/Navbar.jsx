@@ -62,6 +62,16 @@ const Navbar = () => {
                       View Attendance
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/student-hours-report">
+                      Student Hours Report
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="dropdown-item" to="/class-hours-report">
+                      Class Hours Report
+                    </NavLink>
+                  </li>
                 </ul>
               </li>
 

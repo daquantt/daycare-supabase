@@ -21,6 +21,8 @@ const CreateAttendancePage = () => {
   const [totalAttendanceTime, setTotalAttendanceTime] = useState("");
   const [totalNapTime, setTotalNapTime] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getStudents = async () => {
       setLoading(true);
@@ -232,7 +234,7 @@ const CreateAttendancePage = () => {
               />
             </div>
           </div>
-          <p className="w-50 mb-0 mt-1">Hours: {timeCalculator(napStart, napEnd)}</p>
+          <p className="w-50 mb-0 mt-1">Hours: {totalNapTime}</p>
         </div>
 
         <div className="form-group row mb-2">
@@ -252,13 +254,9 @@ const CreateAttendancePage = () => {
           </div>
         </div>
 
-        <button id="inputSubmitBtn" type="submit" className="btn btn-success mt-3 me-3 px-4 fs-5">
+        <button id="inputSubmitBtn" type="submit" className="btn btn-success d-block mt-3 mx-auto px-5 fs-5">
           Create
         </button>
-
-        <Link to={""} type="button" className="btn btn-secondary mt-3 px-4 fs-5">
-          Return
-        </Link>
       </form>
 
       <section className="mt-4">

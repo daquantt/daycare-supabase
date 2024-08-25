@@ -4,6 +4,7 @@ import { fetchAttendance } from "../api/attendanceApi";
 import { fetchStudents } from "../api/studentApi";
 import { timeCalculator } from "../components/TimeCalculator";
 import { FaEdit } from "react-icons/fa";
+import { timeFormatter } from "../components/DateFormatter";
 
 const ViewAttendancePage = () => {
   const [attendance, setAttendance] = useState([]);
@@ -44,8 +45,8 @@ const ViewAttendancePage = () => {
             {attendance.firstName} {attendance.lastName}
           </td>
           <td>{attendance.classroom}</td>
-          <td>{attendance.arrival}</td>
-          <td>{attendance.departure}</td>
+          <td>{timeFormatter(attendance.arrival)}</td>
+          <td>{timeFormatter(attendance.departure)}</td>
           <td>
             <Link to={`/edit-day-report/${attendance.id}`}>
               <FaEdit />
