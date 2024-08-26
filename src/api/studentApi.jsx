@@ -42,6 +42,14 @@ export const updateStudent = async (student) => {
   return;
 };
 
+// delete student
+export const deleteStudent = async (id) => {
+  const res = await fetch(`/api/students/${id}`, {
+    method: "DELETE",
+  });
+  return;
+};
+
 //to get student using id in address bar
 export const studentLoader = async ({ params }) => {
   const res = await fetch(`/api/students/${params.id}`);

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import { updateAttendance } from "../api/attendanceApi";
+import { deleteAttendance, updateAttendance } from "../api/attendanceApi";
 import { toast } from "react-toastify";
 import { dateFormatter } from "../components/DateFormatter";
+import { timeCalculator } from "../components/TimeCalculator";
 
 const EditDayReportPage = () => {
   const studentAttendance = useLoaderData();
@@ -36,6 +37,18 @@ const EditDayReportPage = () => {
     updateAttendance(editAttendance);
     toast.success(`${firstName} was updated`);
     return navigate(`/day-report/${id}`);
+  };
+
+  const onDeleteClick = (id) => {
+    const confirm = window.confirm("Are you sure you want to delete this attendance?");
+
+    if (!confirm) return;
+
+    deleteAttendance(id);
+
+    toast.success("Attendance deleted successfully");
+
+    navigate(-1);
   };
 
   return (
@@ -81,7 +94,7 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <p className="col-12 col-lg-4 my-1">Total Hours: 3.5</p>
+          <p className="col-12 col-lg-4 my-1">Total Hours: {timeCalculator(arrival, departure)}</p>
         </div>
         <div className="row mb-4">
           <div className="form-group row col col-lg-4 px-0 mx-auto">
@@ -116,7 +129,7 @@ const EditDayReportPage = () => {
               />
             </div>
           </div>
-          <p className="col-12 col-lg-4 my-1">Hours: 2.25</p>
+          <p className="col-12 col-lg-4 my-1">Total Time: {timeCalculator(napStart, napEnd)}</p>
         </div>
         <div className="form-group row mb-2">
           <label htmlFor="mood" className="col-lg-2 col-form-label text-md-right">
@@ -136,11 +149,15 @@ const EditDayReportPage = () => {
         </div>
 
         <div className="d-flex justify-content-center align-content-center mt-4">
-          <button id="inputSubmitBtn" type="submit" className="btn btn-success px-4 me-4 fs-5">
+          <button id="inputSubmitBtn" type="submit" className="btn btn-success me-4 px-md-4 fs-5">
             Update
           </button>
 
-          <button onClick={() => navigate(-1)} type="button" className="btn btn-secondary px-4 fs-5">
+          <button onClick={() => onDeleteClick(id)} type="button" className="btn btn-danger me-4 px-md-4 fs-5">
+            Delete
+          </button>
+
+          <button onClick={() => navigate(-1)} type="button" className="btn btn-secondary px-md-4 fs-5">
             Return
           </button>
         </div>

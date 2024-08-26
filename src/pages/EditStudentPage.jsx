@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { updateStudent } from "../api/studentApi";
+import { deleteStudent, updateStudent } from "../api/studentApi";
+import { FaUserEdit } from "react-icons/fa";
 
 const EditStudentPage = () => {
   const student = useLoaderData();
@@ -32,9 +33,23 @@ const EditStudentPage = () => {
     return navigate("/student-list");
   };
 
+  const onDeleteClick = (id) => {
+    const confirm = window.confirm(`Are you sure you want to delete ${firstName} ${lastName}?`);
+
+    if (!confirm) return;
+
+    deleteStudent(id);
+
+    toast.success(`${firstName} ${lastName} deleted successfully`);
+
+    navigate(-1);
+  };
+
   return (
     <section className="container pb-3">
-      <h2 className="text-center my-4">Update Student</h2>
+      <h2 className="text-center my-4">
+        <FaUserEdit className="mb-2" /> Update Student
+      </h2>
       <div className="mx-auto row">
         <form onSubmit={submitForm} className="col-sm-8 col-lg-6 p-3 mx-auto border rounded-3">
           <div className="form-group row mb-2 mb-md-3">
@@ -122,10 +137,15 @@ const EditStudentPage = () => {
             </div>
           </div>
           <div className="d-flex justify-content-center align-content-center">
-            <button id="inputSubmitBtn" type="submit" className="btn btn-success mt-3 me-3 px-4 fs-5">
+            <button id="inputSubmitBtn" type="submit" className="btn btn-success mt-3 me-3 px-md-4 fs-5">
               Update
             </button>
-            <Link to={`/student-list`} className="btn btn-secondary mt-3 ms-3 px-4 fs-5">
+
+            <button onClick={() => onDeleteClick(id)} type="button" className="btn btn-danger mt-3 me-3 px-md-4 fs-5">
+              Delete
+            </button>
+
+            <Link to={`/student-list`} className="btn btn-secondary mt-3 px-md-4 fs-5">
               Return
             </Link>
           </div>

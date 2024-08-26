@@ -111,17 +111,6 @@
       "mood": "Grumpy"
     },
     {
-      "id": "443a",
-      "studentId": "d4a4",
-      "date": "2024-08-18",
-      "firstName": "Lucas",
-      "lastName": "Chin",
-      "classroom": "Pearl",
-      "mood": "Grumpy",
-      "napStart": "13:00",
-      "napEnd": ""
-    },
-    {
       "id": "024d",
       "studentId": "5cb8",
       "date": "2024-08-19",
@@ -161,19 +150,6 @@
       "napEnd": ""
     },
     {
-      "id": "e8d0",
-      "studentId": "141e",
-      "date": "2024-08-19",
-      "firstName": "Mia",
-      "lastName": "Motley",
-      "classroom": "Ruby",
-      "mood": "",
-      "arrival": "",
-      "departure": "",
-      "napStart": "",
-      "napEnd": ""
-    },
-    {
       "id": "fa0f",
       "studentId": "a20c",
       "date": "2024-08-19",
@@ -187,19 +163,6 @@
       "napEnd": "06:02"
     },
     {
-      "id": "b1d5",
-      "studentId": "d4a4",
-      "date": "2024-08-19",
-      "firstName": "Lucas",
-      "lastName": "Chin",
-      "classroom": "Pearl",
-      "mood": "",
-      "arrival": "",
-      "departure": "",
-      "napStart": "",
-      "napEnd": ""
-    },
-    {
       "id": "ddc3",
       "studentId": "9f81",
       "date": "2024-08-20",
@@ -211,19 +174,6 @@
       "napStart": "11:30",
       "napEnd": "",
       "mood": "Sleepy"
-    },
-    {
-      "id": "87bc",
-      "studentId": "595f",
-      "date": "2024-08-20",
-      "firstName": "Lance",
-      "lastName": "Aquan",
-      "classroom": "Amber",
-      "mood": "",
-      "arrival": "",
-      "departure": "",
-      "napStart": "",
-      "napEnd": ""
     },
     {
       "id": "f0f7",

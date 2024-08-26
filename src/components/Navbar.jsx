@@ -1,3 +1,4 @@
+import { FaChild } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
@@ -21,7 +22,7 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse d-lg-flex justify-content-md-between" id="navbarMenu">
             <NavLink className="navbar-brand col-lg-3 me-0" to="/">
-              DayCareDash
+              <FaChild className="mb-1" /> DayCareDash
             </NavLink>
             <ul className="navbar-nav col-lg-6 justify-content-lg-end">
               <li className="nav-item">

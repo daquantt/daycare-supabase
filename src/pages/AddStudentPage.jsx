@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addStudent } from "../api/studentApi";
+import { FaUserPlus } from "react-icons/fa";
 
 const AddStudent = () => {
   const [firstName, setFirstName] = useState("");
@@ -35,7 +36,9 @@ const AddStudent = () => {
 
   return (
     <section className="container pb-3">
-      <h2 className="text-center my-4">Register Student</h2>
+      <h2 className="text-center my-4">
+        <FaUserPlus className="mb-2" /> Register Student
+      </h2>
       <div className="mx-auto row">
         <form onSubmit={submitForm} className="col-sm-8 col-lg-6 p-3 mx-auto border rounded-3">
           <div className="form-group row mb-2 mb-md-3">

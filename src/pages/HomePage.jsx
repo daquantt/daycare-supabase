@@ -1,3 +1,4 @@
+import { FaChild } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Homepage = () => {
@@ -6,6 +7,9 @@ const Homepage = () => {
       <section className="container">
         <h2 className="text-center my-4">Welcome to Daycare</h2>
 
+        <div>
+          <FaChild className="fs-1 d-block mx-auto mb-3" />
+        </div>
         <div id="class-buttons" className="mb-3">
           <p className="text-center">Select a Classroom</p>
           <div className="d-flex justify-content-center align-items-end">

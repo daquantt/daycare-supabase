@@ -52,6 +52,14 @@ export const updateAttendance = async (attendance) => {
   return;
 };
 
+// delete attendance
+export const deleteAttendance = async (id) => {
+  const res = await fetch(`/api/attendance/${id}`, {
+    method: "DELETE",
+  });
+  return;
+};
+
 //to get a student attendance using id in address bar
 export const attendanceLoader = async ({ params }) => {
   const res = await fetch(`/api/attendance/${params.id}`);
