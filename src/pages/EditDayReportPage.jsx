@@ -73,7 +73,7 @@ const EditDayReportPage = () => {
                 name="arrival"
                 id="arrival"
                 autoComplete="on"
-                value={arrival}
+                value={arrival || ""}
                 onChange={(e) => setArrival(e.target.value)}
               />
             </div>
@@ -89,7 +89,7 @@ const EditDayReportPage = () => {
                 name="departure"
                 id="departure"
                 autoComplete="on"
-                value={departure}
+                value={departure || ""}
                 onChange={(e) => setDeparture(e.target.value)}
               />
             </div>
@@ -108,7 +108,7 @@ const EditDayReportPage = () => {
                 name="napStart"
                 id="napStart"
                 autoComplete="on"
-                value={napStart}
+                value={napStart || ""}
                 onChange={(e) => setNapStart(e.target.value)}
               />
             </div>
@@ -124,7 +124,7 @@ const EditDayReportPage = () => {
                 name="napEnd"
                 id="napEnd"
                 autoComplete="on"
-                value={napEnd}
+                value={napEnd || ""}
                 onChange={(e) => setNapEnd(e.target.value)}
               />
             </div>

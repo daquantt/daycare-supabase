@@ -13,13 +13,13 @@ const CreateAttendancePage = () => {
   const [selectStudentValue, setSelectStudentValue] = useState("");
   const [studentAttendance, setStudentAttendance] = useState("");
   const [date, setDate] = useState("");
-  const [arrival, setArrival] = useState("");
-  const [departure, setDeparture] = useState("");
-  const [napStart, setNapStart] = useState("");
-  const [napEnd, setNapEnd] = useState("");
+  const [arrival, setArrival] = useState(null);
+  const [departure, setDeparture] = useState(null);
+  const [napStart, setNapStart] = useState(null);
+  const [napEnd, setNapEnd] = useState(null);
   const [mood, setMood] = useState("");
-  const [totalAttendanceTime, setTotalAttendanceTime] = useState("");
-  const [totalNapTime, setTotalNapTime] = useState("");
+  const [totalAttendanceTime, setTotalAttendanceTime] = useState(null);
+  const [totalNapTime, setTotalNapTime] = useState(null);
 
   const navigate = useNavigate();
 
@@ -55,7 +55,7 @@ const CreateAttendancePage = () => {
   useEffect(() => {
     //get student data from student db
     const getStudent = () => {
-      const studentData = students.find((student) => student.id === selectStudentValue);
+      const studentData = students.find((student) => student.id === Number(selectStudentValue));
       setStudent(studentData);
     };
 
@@ -123,7 +123,6 @@ const CreateAttendancePage = () => {
     };
 
     addStudentToClass(manualAttendance);
-    toast.success(`${student.firstName} was created`);
   };
 
   return (
@@ -193,7 +192,7 @@ const CreateAttendancePage = () => {
                 name="arrival"
                 id="arrival"
                 autoComplete="on"
-                value={arrival}
+                value={arrival || ""}
                 onChange={(e) => setArrival(e.target.value)}
               />
             </div>
@@ -209,7 +208,7 @@ const CreateAttendancePage = () => {
                 name="departure"
                 id="departure"
                 autoComplete="on"
-                value={departure}
+                value={departure || ""}
                 onChange={(e) => setDeparture(e.target.value)}
               />
             </div>
@@ -229,7 +228,7 @@ const CreateAttendancePage = () => {
                 name="napStart"
                 id="napStart"
                 autoComplete="on"
-                value={napStart}
+                value={napStart || ""}
                 onChange={(e) => setNapStart(e.target.value)}
               />
             </div>
@@ -245,7 +244,7 @@ const CreateAttendancePage = () => {
                 name="napEnd"
                 id="napEnd"
                 autoComplete="on"
-                value={napEnd}
+                value={napEnd || ""}
                 onChange={(e) => setNapEnd(e.target.value)}
               />
             </div>

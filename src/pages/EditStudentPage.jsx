@@ -6,6 +6,7 @@ import { FaUserEdit } from "react-icons/fa";
 
 const EditStudentPage = () => {
   const student = useLoaderData();
+  console.log(student);
 
   const [firstName, setFirstName] = useState(student.firstName);
   const [lastName, setLastName] = useState(student.lastName);

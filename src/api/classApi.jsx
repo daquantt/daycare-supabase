@@ -1,6 +1,10 @@
+import { supabase } from "../supabaseClient";
+
 //to get a class using id in address bar
 export const classLoader = async ({ params }) => {
-  const res = await fetch(`/api/classrooms/${params.id}`);
-  const data = await res.json();
+  const { data, error } = await supabase.from("classrooms").select().eq("id", params.id).maybeSingle();
+  if (error) {
+    console.log(error);
+  }
   return data;
 };

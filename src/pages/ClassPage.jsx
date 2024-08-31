@@ -4,6 +4,7 @@ import { addStudentToClass, fetchTodayStudents } from "../api/attendanceApi";
 import { toast } from "react-toastify";
 import dateFormat from "dateformat";
 import { Link, useLoaderData } from "react-router-dom";
+import { supabase } from "../supabaseClient";
 
 const ClassPage = () => {
   const classroom = useLoaderData();
@@ -26,7 +27,7 @@ const ClassPage = () => {
     const getStudentsInClass = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchStudentsInClass(classroomName, "Y");
+        const StudentData = await fetchStudentsInClass(classroomName);
         setStudents(StudentData);
       } catch (error) {
         setError(error);
@@ -39,9 +40,8 @@ const ClassPage = () => {
   //get student data for attendance to class
   useEffect(() => {
     const getStudent = async () => {
-      const res = await fetch(`/api/students?id=${selectValue}`);
-      const student = await res.json();
-      setStudentData(student);
+      const { data, error } = await supabase.from("students").select().eq("id", selectValue);
+      setStudentData(data);
     };
     getStudent();
   }, [selectValue]);
@@ -50,7 +50,7 @@ const ClassPage = () => {
     const getTodayStudents = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchTodayStudents(todayAsString);
+        const StudentData = await fetchTodayStudents(today);
         setTodayStudents(StudentData);
       } catch (error) {
         setError(error);
@@ -93,7 +93,8 @@ const ClassPage = () => {
     // if student in class already, notify user and return
     const isStudentPresent = () => {
       const idArray = Array.from(studentsInClassToday, (item) => item.studentId);
-      if (idArray.includes(selectValue)) {
+      console.log(idArray, selectValue);
+      if (idArray.includes(Number(selectValue))) {
         return true;
       } else return false;
     };
@@ -105,18 +106,18 @@ const ClassPage = () => {
 
     const student = {
       studentId: selectValue,
-      date: todayAsString,
+      date: today,
       firstName: studentData[0].firstName,
       lastName: studentData[0].lastName,
       classroom: studentData[0].classroom,
       mood: "",
-      arrival: "",
-      departure: "",
-      napStart: "",
-      napEnd: "",
+      arrival: null,
+      departure: null,
+      napStart: null,
+      napEnd: null,
     };
     addStudentToClass(student);
-    toast.success(`${studentData[0].firstName} was added to the class`);
+    setSelectValue("");
     setReload(!reload);
   }
 

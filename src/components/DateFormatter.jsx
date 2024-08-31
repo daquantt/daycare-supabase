@@ -14,7 +14,7 @@ export function dateFormatter(dateAsString) {
 export function timeFormatter(time) {
   const hours = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
-  if (time === undefined || time === "") {
+  if (time === undefined || time === null || time === "") {
     return "-:--";
   } else {
     const timeArray = time.split(":");

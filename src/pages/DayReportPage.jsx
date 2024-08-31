@@ -18,7 +18,7 @@ const DayReportPage = () => {
   }
 
   return (
-    <section className="container my-4">
+    <section className="container mt-4 pb-5">
       <h3 className="text-center fs-3">Student Daily Report</h3>
       <div className="d-flex justify-content-between align-items-center mb-3">
         <p className="fs-2 fw-bold mb-0">

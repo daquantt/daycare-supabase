@@ -32,7 +32,7 @@ const StudentHoursReportPage = () => {
   useEffect(() => {
     //get student data from student db
     const getStudent = () => {
-      const studentData = students.find((student) => student.id === selectStudentValue);
+      const studentData = students.find((student) => student.id === Number(selectStudentValue));
       setStudent(studentData);
     };
 
@@ -77,17 +77,17 @@ const StudentHoursReportPage = () => {
     let previousMonth = now.setMonth(now.getMonth() - i);
     previous12Months.push(previousMonth);
   }
-  console.log(previous12Months);
+  // console.log(previous12Months);
 
   //func to calculate total hours for the month
   const showMonths = () =>
-    previous12Months.map((month) => {
+    previous12Months.map((month, index) => {
       //filter on dates within current month
       let currentMonthAttendance = studentAttendance.filter(
         (attendance) =>
           moment(attendance.date).month() === new Date(month).getMonth() && moment(attendance.date).year() === new Date(month).getFullYear()
       );
-      console.log(currentMonthAttendance);
+      // console.log(currentMonthAttendance);
 
       let times = [];
       currentMonthAttendance.forEach((item) => {
@@ -95,13 +95,13 @@ const StudentHoursReportPage = () => {
         let time = moment.duration(item.departure, "HH:mm").subtract(moment.duration(item.arrival, "HH:mm"));
         times.push(time);
       });
-      console.log(times);
+      // console.log(times);
 
       //add all times using reduce method
       let totalTime = times.reduce((acc, time) => acc.add(moment.duration(time)), moment.duration());
 
       return (
-        <tr>
+        <tr key={index}>
           <td>
             {months[new Date(month).getMonth()]} {new Date(month).getFullYear()}
           </td>
