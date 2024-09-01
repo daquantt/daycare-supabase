@@ -93,7 +93,6 @@ const ClassPage = () => {
     // if student in class already, notify user and return
     const isStudentPresent = () => {
       const idArray = Array.from(studentsInClassToday, (item) => item.studentId);
-      console.log(idArray, selectValue);
       if (idArray.includes(Number(selectValue))) {
         return true;
       } else return false;
@@ -106,7 +105,7 @@ const ClassPage = () => {
 
     const student = {
       studentId: selectValue,
-      date: today,
+      date: todayAsString,
       firstName: studentData[0].firstName,
       lastName: studentData[0].lastName,
       classroom: studentData[0].classroom,
@@ -116,6 +115,7 @@ const ClassPage = () => {
       napStart: null,
       napEnd: null,
     };
+
     addStudentToClass(student);
     setSelectValue("");
     setReload(!reload);

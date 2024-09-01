@@ -109,6 +109,7 @@ const CreateAttendancePage = () => {
       return;
     }
 
+    console.log(date);
     const manualAttendance = {
       studentId: student.id,
       date,

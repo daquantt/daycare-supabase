@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addStudent } from "../api/studentApi";
 import { FaUserPlus } from "react-icons/fa";
@@ -10,8 +9,6 @@ const AddStudent = () => {
   const [birthDate, setBirthDate] = useState("");
   const [classroom, setClassroom] = useState("");
   const [active, setActive] = useState("");
-
-  const navigate = useNavigate();
 
   const submitForm = (event) => {
     event.preventDefault();
@@ -31,7 +28,6 @@ const AddStudent = () => {
     setBirthDate("");
     setClassroom("");
     setActive("");
-    return navigate("/register-student");
   };
 
   return (
