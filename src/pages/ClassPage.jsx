@@ -50,7 +50,7 @@ const ClassPage = () => {
     const getTodayStudents = async () => {
       setLoading(true);
       try {
-        const StudentData = await fetchTodayStudents(today);
+        const StudentData = await fetchTodayStudents(todayAsString);
         setTodayStudents(StudentData);
       } catch (error) {
         setError(error);
