@@ -129,7 +129,8 @@ const ClassPage = () => {
           Back
         </Link>
       </div>
-      <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p>
+      <p className="fs-5 pb-3 mb-4 border-bottom">{todayAsString}</p>
+      {/* <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p> */}
       <form onSubmit={addStudentToAttendance} className="col-sm-8 col-lg-6 ms-auto mb-4">
         <div className="input-group ms-auto">
           <select className="form-select" id="searchBar" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
