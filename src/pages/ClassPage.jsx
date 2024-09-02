@@ -7,12 +7,16 @@ import { Link, useLoaderData } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 
 const ClassPage = () => {
-  const classroom = useLoaderData();
+  const classroom = useLoaderData() || {};
 
   const [students, setStudents] = useState([]);
   const [studentData, setStudentData] = useState([]);
-  const [classroomName, setClassroomName] = useState(classroom.name);
-  const [classroomColor, setClassroomColor] = useState(classroom.color);
+  const [classroomName, setClassroomName] = useState(
+    classroom.name || "Default Class Name"
+  );
+  const [classroomColor, setClassroomColor] = useState(
+    classroom.color || "primary"
+  );
   const [todayStudents, setTodayStudents] = useState([]);
   const [studentsInClassToday, setStudentsInClassToday] = useState([]);
   const [selectValue, setSelectValue] = useState("");
@@ -35,12 +39,15 @@ const ClassPage = () => {
       setLoading(false);
     };
     getStudentsInClass();
-  }, []);
+  }, [classroomName]);
 
   //get student data for attendance to class
   useEffect(() => {
     const getStudent = async () => {
-      const { data, error } = await supabase.from("students").select().eq("id", selectValue);
+      const { data, error } = await supabase
+        .from("students")
+        .select()
+        .eq("id", selectValue);
       setStudentData(data);
     };
     getStudent();
@@ -50,7 +57,6 @@ const ClassPage = () => {
     const getTodayStudents = async () => {
       setLoading(true);
       try {
-        // const StudentData = await fetchTodayStudents(todayAsString);
         const StudentData = await fetchTodayStudents("2024-08-31");
         setTodayStudents(StudentData);
       } catch (error) {
@@ -60,10 +66,11 @@ const ClassPage = () => {
     };
     getTodayStudents();
   }, [reload]);
-  // console.log(todayStudents);
 
   useEffect(() => {
-    setStudentsInClassToday(todayStudents.filter((student) => student.classroom === classroomName));
+    setStudentsInClassToday(
+      todayStudents.filter((student) => student.classroom === classroomName)
+    );
   }, [todayStudents, reload]);
 
   if (loading) {
@@ -71,7 +78,11 @@ const ClassPage = () => {
   }
 
   if (error) {
-    return <div className="text-center mt-5">Something went wrong. Please try again...</div>;
+    return (
+      <div className="text-center mt-5">
+        Something went wrong. Please try again...
+      </div>
+    );
   }
 
   //list active students in the class
@@ -93,24 +104,26 @@ const ClassPage = () => {
     }
     // if student in class already, notify user and return
     const isStudentPresent = () => {
-      const idArray = Array.from(studentsInClassToday, (item) => item.studentId);
+      const idArray = Array.from(
+        studentsInClassToday,
+        (item) => item.studentId
+      );
       if (idArray.includes(Number(selectValue))) {
         return true;
       } else return false;
     };
 
     if (isStudentPresent()) {
-      toast.error(`${studentData[0].firstName} is already in class`);
+      toast.error(`${studentData[0]?.firstName} is already in class`);
       return;
     }
 
     const student = {
       studentId: selectValue,
-      // date: todayAsString,
       date: "2024-08-31",
-      firstName: studentData[0].firstName,
-      lastName: studentData[0].lastName,
-      classroom: studentData[0].classroom,
+      firstName: studentData[0]?.firstName || "",
+      lastName: studentData[0]?.lastName || "",
+      classroom: studentData[0]?.classroom || "",
       mood: "",
       arrival: null,
       departure: null,
@@ -132,10 +145,17 @@ const ClassPage = () => {
         </Link>
       </div>
       <p className="fs-5 pb-3 mb-4 border-bottom">2024-08-31</p>
-      {/* <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p> */}
-      <form onSubmit={addStudentToAttendance} className="col-sm-8 col-lg-6 ms-auto mb-4">
+      <form
+        onSubmit={addStudentToAttendance}
+        className="col-sm-8 col-lg-6 ms-auto mb-4"
+      >
         <div className="input-group ms-auto">
-          <select className="form-select" id="searchBar" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
+          <select
+            className="form-select"
+            id="searchBar"
+            value={selectValue}
+            onChange={(e) => setSelectValue(e.target.value)}
+          >
             <option value="">Select student</option>
             {nameList}
           </select>
@@ -144,10 +164,18 @@ const ClassPage = () => {
           </button>
         </div>
       </form>
-      <ul id="classListing" className="d-flex justify-content-between gap-2 p-0 mb-0">
+      <ul
+        id="classListing"
+        className="d-flex justify-content-between gap-2 p-0 mb-0"
+      >
         {studentsInClassToday.map((attendance) => {
           return (
-            <Link key={attendance.id} to={`/day-report/${attendance.id}`} type="button" className={`btn btn-${classroomColor}`}>
+            <Link
+              key={attendance.id}
+              to={`/day-report/${attendance.id}`}
+              type="button"
+              className={`btn btn-${classroomColor}`}
+            >
               <li>
                 {attendance.firstName} {attendance.lastName}
               </li>

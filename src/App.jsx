@@ -17,6 +17,7 @@ import CreateAttendancePage from "./pages/CreateAttendancePage";
 import ViewAttendancePage from "./pages/ViewAttendancePage";
 import ClassHoursReportPage from "./pages/ClassHoursReportPage";
 import StudentHoursReportPage from "./pages/StudentHoursReportPage";
+import TestSupaPage from "./pages/TestSupaPage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const App = () => {
       //webpage will load mainLayout first with the homepage (index) first
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HomePage />} />
+        <Route path="/test" element={<TestSupaPage />} />
         <Route path="/register-student" element={<AddStudentPage />} />
         <Route path="/student-list" element={<StudentListPage />} />
         <Route path="/edit-student/:id" element={<EditStudentPage />} loader={studentLoader} />
