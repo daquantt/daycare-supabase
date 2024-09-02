@@ -20,8 +20,9 @@ const ClassPage = () => {
   const [error, setError] = useState();
   const [reload, setReload] = useState(false);
 
-  const today = new Date().toLocaleDateString();
+  const today = new Date();
   const todayAsString = dateFormat(today, "yyyy-mm-dd");
+  // console.log(today, todayAsString);
 
   useEffect(() => {
     const getStudentsInClass = async () => {
@@ -50,8 +51,8 @@ const ClassPage = () => {
     const getTodayStudents = async () => {
       setLoading(true);
       try {
-        // const StudentData = await fetchTodayStudents(todayAsString);
-        const StudentData = await fetchTodayStudents("2024-08-31");
+        const StudentData = await fetchTodayStudents(todayAsString);
+        // const StudentData = await fetchTodayStudents("2024-08-31");
         setTodayStudents(StudentData);
       } catch (error) {
         setError(error);
@@ -106,8 +107,8 @@ const ClassPage = () => {
 
     const student = {
       studentId: selectValue,
-      // date: todayAsString,
-      date: "2024-08-31",
+      date: todayAsString,
+      // date: "2024-08-31",
       firstName: studentData[0].firstName,
       lastName: studentData[0].lastName,
       classroom: studentData[0].classroom,
@@ -131,8 +132,7 @@ const ClassPage = () => {
           Back
         </Link>
       </div>
-      <p className="fs-5 pb-3 mb-4 border-bottom">2024-08-31</p>
-      {/* <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p> */}
+      <p className="fs-5 pb-3 mb-4 border-bottom">{dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM TT")}</p>
       <form onSubmit={addStudentToAttendance} className="col-sm-8 col-lg-6 ms-auto mb-4">
         <div className="input-group ms-auto">
           <select className="form-select" id="searchBar" value={selectValue} onChange={(e) => setSelectValue(e.target.value)}>
