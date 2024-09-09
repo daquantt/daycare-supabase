@@ -147,7 +147,7 @@ const ClassPage = () => {
       <ul id="classListing" className="d-flex justify-content-between gap-2 p-0 mb-0">
         {studentsInClassToday.map((attendance) => {
           return (
-            <Link key={attendance.id} to={`/day-report/${attendance.id}`} type="button" className={`btn btn-${classroomColor}`}>
+            <Link key={attendance.id} to={`/edit-day-report/${attendance.id}`} type="button" className={`btn btn-${classroomColor}`}>
               <li>
                 {attendance.firstName} {attendance.lastName}
               </li>

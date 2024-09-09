@@ -36,7 +36,7 @@ const EditDayReportPage = () => {
 
     updateAttendance(editAttendance);
     toast.success(`${firstName} was updated`);
-    return navigate(`/day-report/${id}`);
+    return navigate(-1);
   };
 
   const onDeleteClick = (id) => {
